@@ -4,22 +4,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* background: linear-gradient(180deg, #131f3c 0%, #000e31 100%); */
-  /* padding: 40px 20px; */
   box-sizing: border-box;
   text-align: center;
+  padding: 20px;
 }
 
 .confirmation-message {
   color: #ffffff;
-  font-size: 24px;
-  margin-bottom: 48px;
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  line-height: 1.4;
 }
 
 /* Mood Section */
 .result-section {
   width: 100%;
   max-width: 800px;
+  padding: 0 1rem;
 }
 
 .selected-mood {
@@ -29,23 +30,24 @@
 }
 
 .selected-mood-icon {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 16px;
+  width: 6rem;
+  height: 6rem;
+  margin-bottom: 1rem;
 }
 
 .selected-mood-title {
   color: #ffffff;
-  font-size: 32px;
-  /* margin: 16px 0; */
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .selected-mood-description {
   color: #A8B0C4;
-  font-size: 18px;
+  font-size: 1rem;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.5;
+  text-align: justify;
 }
 
 /* Genre Section */
@@ -53,19 +55,19 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 50px;
+  gap: 1.5rem;
+  margin-top: 3rem;
 }
 
 .result-item {
   background: rgba(0, 13, 46, 0.5);
   border: 2px solid #F4A534;
   border-radius: 12px;
-  padding: 10px;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 140px;
+  width: 9rem;
   transition: transform 0.2s ease;
 }
 
@@ -74,29 +76,31 @@
 }
 
 .result-icon {
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
 }
 
 .result-label {
   color: #ffffff;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: capitalize;
+  text-align: center;
 }
 
 .genre-message {
   color: #A8B0C4;
-  font-size: 18px;
-  margin: 24px 0;
+  font-size: 1rem;
+  margin: 1.5rem 0;
+  text-align: center;
 }
 
 .no-data {
   color: #A8B0C4;
-  font-size: 16px;
-  margin: 16px 0;
+  font-size: 1rem;
+  margin: 1rem 0;
+  text-align: center;
 }
-
 
 /* Button Styles */
 .recommendations-button {
@@ -104,14 +108,14 @@
   color: #ffffff;
   border: none;
   border-radius: 8px;
-  padding: 16px 32px;
-  font-size: 18px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
   font-weight: 300;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
   width: 100%;
-  max-width: 400px;
-  margin-top: 10px;
+  max-width: 25rem;
+  margin-top: 0.625rem;
 }
 
 .recommendations-button:hover {
@@ -123,69 +127,89 @@
   transform: translateY(0);
 }
 
-.just-line hr{
-  width: 50rem;
+.just-line hr {
+  width: 100%;
+  max-width: 50rem;
   border-color: #21293e69;
 }
 
 /* Responsive Design */
-@media screen and (max-width: 768px) {
-  .result-title {
-    font-size: 28px;
+@media screen and (max-width: 1024px) {
+  .selected-mood-title {
+    font-size: 1.75rem;
   }
 
   .confirmation-message {
-    font-size: 20px;
-  }
-
-  .selected-mood-icon {
-    width: 100px;
-    height: 100px;
-  }
-
-  .selected-mood-title {
-    font-size: 28px;
+    font-size: 1.25rem;
   }
 
   .result-items {
-    gap: 16px;
+    gap: 1rem;
   }
 
   .result-item {
-    width: 120px;
-    padding: 16px;
+    width: 8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .result-title {
+    font-size: 1.5rem;
+  }
+
+  .confirmation-message {
+    font-size: 1.25rem;
+  }
+
+  .selected-mood-icon {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .selected-mood-title {
+    font-size: 1.5rem;
+  }
+
+  .selected-mood-description {
+    font-size: 0.875rem;
+  }
+
+  .result-items {
+    gap: 0.875rem;
+  }
+
+  .result-item {
+    width: 6.5rem;
+  }
+
+  .recommendations-button {
+    font-size: 0.875rem;
+    padding: 0.875rem 1.5rem;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .result-title {
-    font-size: 24px;
-  }
-
   .confirmation-message {
-    font-size: 18px;
-  }
-
-  .section-title {
-    font-size: 24px;
+    font-size: 1rem;
   }
 
   .selected-mood-description {
-    font-size: 16px;
+    font-size: 0.75rem;
   }
 
   .result-items {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
 
   .result-item {
     width: 100%;
-    max-width: 200px;
+    max-width: 12.5rem;
   }
 
   .recommendations-button {
-    font-size: 16px;
-    padding: 14px 24px;
+    font-size: 0.75rem;
+    padding: 0.75rem 1rem;
   }
 }
