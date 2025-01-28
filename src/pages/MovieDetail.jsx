@@ -1,26 +1,71 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import { FaStar } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
-import { getMovieDetails, getSimilarMovies } from '../utils/api'; // Pastikan fungsi getSimilarMovies ada di api.js
+import { getMovieDetails, getSimilarMovies, addToWatchlist } from '../utils/api';
+import Modal from '../components/common/Modal';
 import '../assets/styles/MovieDetail.css';
 
-const MovieCard = ({ image, title }) => {
+const MovieCard = ({ movie, showModal }) => {
+  const navigate = useNavigate();
+  const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
+  const handleClick = () => {
+    navigate(`/moviedetail/${movie.id}`);
+  };
+
+  const handleAddToWatchlist = async (e) => {
+    e.stopPropagation(); // Prevent navigation to movie detail
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+      showModal({
+        isOpen: true,
+        title: 'Action Failed',
+        message: 'User ID not found. Please log in again.',
+      });
+      return;
+    }
+
+    try {
+      await addToWatchlist(userId, movie.id);
+      showModal({
+        isOpen: true,
+        title: 'Success',
+        message: `${movie.title} has been added to your watchlist!`,
+      });
+    } catch (err) {
+      console.error(err);
+      showModal({
+        isOpen: true,
+        title: 'Action Failed',
+        message: 'Failed to add to watchlist. Please try again.',
+      });
+    }
+  };
+
   return (
-    <div className="similar-movie-card">
-      <img src={image} alt={title} className="similar-movie-image" />
-      <button className="add-to-watchlist">+</button>
+    <div className="similar-movie-card" onClick={handleClick}>
+      <img src={imageUrl} alt={movie.title} className="similar-movie-image" />
+      <button className="add-to-watchlist" onClick={handleAddToWatchlist}>
+        +
+      </button>
     </div>
   );
 };
 
 const MovieDetail = () => {
-  const { id } = useParams(); // Get movie ID from URL
+  const { id } = useParams();
   const [movie, setMovie] = useState(null);
-  const [similarMovies, setSimilarMovies] = useState([]); // State untuk similar movies
+  const [similarMovies, setSimilarMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [modalState, setModalState] = useState({
+    isOpen: false,
+    title: '',
+    message: '',
+  });
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -28,8 +73,8 @@ const MovieDetail = () => {
         const response = await getMovieDetails(id);
         setMovie({
           ...response.details,
-          director: response.director, // Menambahkan director ke movie state
-          cast: response.credits.cast.slice(0, 5), // Ambil 5 pemeran utama
+          director: response.director,
+          cast: response.credits.cast.slice(0, 5),
         });
         setLoading(false);
       } catch (err) {
@@ -41,15 +86,19 @@ const MovieDetail = () => {
     const fetchSimilarMovies = async () => {
       try {
         const response = await getSimilarMovies(id);
-        setSimilarMovies(response.similar); // Set similar movies ke state
+        setSimilarMovies(response.similar);
       } catch (err) {
         setError(err.message);
       }
     };
 
     fetchMovieDetails();
-    fetchSimilarMovies(); // Panggil API untuk similar movies
+    fetchSimilarMovies();
   }, [id]);
+
+  const handleCloseModal = () => {
+    setModalState({ isOpen: false, title: '', message: '' });
+  };
 
   if (loading) {
     return (
@@ -69,7 +118,7 @@ const MovieDetail = () => {
 
   const backdropUrl = movie.backdropUrl
     ? `https://image.tmdb.org/t/p/original${movie.backdropUrl}`
-    : '/src/assets/images/default-backdrop.jpg'; // Provide a default image if backdropUrl is not available
+    : '/src/assets/images/default-backdrop.jpg';
 
   const releaseYear = new Date(movie.release_date).getFullYear();
 
@@ -77,7 +126,6 @@ const MovieDetail = () => {
     <div className="movie-detail-page">
       <Header />
       
-      {/* Hero Section */}
       <section className="detail-movie-hero" style={{ backgroundImage: `url(${backdropUrl})` }}>
         <div className="detail-hero-overlay">
           <div className="detail-hero-content">
@@ -87,7 +135,6 @@ const MovieDetail = () => {
         </div>
       </section>
 
-      {/* Detail Container */}
       <main className="detail-container">
         <div className="detail-content">
           <section className="synopsis-section">
@@ -120,17 +167,27 @@ const MovieDetail = () => {
         </div>
       </main>
 
-      {/* Similar Movies Section */}
       <section className="similar-movies">
         <h2>Similar Movies</h2>
         <div className="similar-movies-grid">
           {similarMovies.map((similarMovie) => (
-            <MovieCard key={similarMovie.id} image={similarMovie.posterUrl} title={similarMovie.title} />
+            <MovieCard
+              key={similarMovie.id}
+              movie={similarMovie}
+              showModal={setModalState}
+            />
           ))}
         </div>
       </section>
 
       <Footer />
+      <Modal
+        isOpen={modalState.isOpen}
+        onClose={handleCloseModal}
+        title={modalState.title}
+        message={modalState.message}
+        duration={1000}
+      />
     </div>
   );
 };
