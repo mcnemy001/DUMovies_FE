@@ -1,0 +1,141 @@
+/* SignUp.css */
+.signup-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #131f3c 0%, #000e31 100%);
+    padding: 1.25rem; 
+}
+
+.signup-content {
+    width: 100%;
+    max-width: 25rem; 
+    text-align: center;
+}
+
+.signup-header {
+    margin-bottom: 2.5rem; 
+}
+
+.welcome-text {
+    color: #ffffff;
+    font-size: 2rem; 
+    margin-bottom: 1rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem; 
+    font-weight: 500;
+}
+
+.logo {
+    height: 1.5625rem; 
+}
+
+.subtitle {
+    color: #A8B0C4;
+    font-size: 1rem;
+    margin-bottom: 2rem; 
+    line-height: 1.5;
+}
+
+.signup-title {
+    color: #A8B0C4;
+    font-size: 1.5rem; 
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+}
+
+.form-group {
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 0.5rem; 
+    font-size: 0.875rem; 
+}
+
+.custom-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: #000D2E;
+    border: 1px solid #21293E;
+    border-radius: 0.5rem; 
+    color: #ffffff;
+    font-size: 1rem; 
+}
+
+.custom-input::placeholder {
+    color: #4B4F57;
+}
+
+.custom-button {
+    width: 100%;
+    padding: 0.875rem; 
+    background: #F4A534;
+    border: none;
+    border-radius: 0.5rem; 
+    color: #ffffff;
+    font-size: 1rem; 
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.custom-button:hover {
+    background: #e69423;
+}
+
+/* Styling for the Sign In link text */
+.signin-link-container {
+    margin-top: 1.5rem;
+}
+
+.signin-text {
+    color: #A8B0C4;
+    font-size: 1rem;
+}
+
+.signin-link {
+    color: #F4A534;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signin-link:hover {
+    text-decoration: underline;
+}
+
+.password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .toggle-password-btn {
+    position: absolute;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: #ffffff;
+  }
+  
+  .toggle-password-btn:hover {
+    color: #f4a534;
+  }
+  
+
+@media (max-width: 48rem) { 
+    .welcome-text {
+        display: inline;
+    }
+}

@@ -1,0 +1,191 @@
+.result-quiz-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(180deg, #131f3c 0%, #000e31 100%); */
+  /* padding: 40px 20px; */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.confirmation-message {
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 48px;
+}
+
+/* Mood Section */
+.result-section {
+  width: 100%;
+  max-width: 800px;
+}
+
+.selected-mood {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selected-mood-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 16px;
+}
+
+.selected-mood-title {
+  color: #ffffff;
+  font-size: 32px;
+  /* margin: 16px 0; */
+}
+
+.selected-mood-description {
+  color: #A8B0C4;
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Genre Section */
+.result-items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 50px;
+}
+
+.result-item {
+  background: rgba(0, 13, 46, 0.5);
+  border: 2px solid #F4A534;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 140px;
+  transition: transform 0.2s ease;
+}
+
+.result-item:hover {
+  transform: translateY(-5px);
+}
+
+.result-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.result-label {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.genre-message {
+  color: #A8B0C4;
+  font-size: 18px;
+  margin: 24px 0;
+}
+
+.no-data {
+  color: #A8B0C4;
+  font-size: 16px;
+  margin: 16px 0;
+}
+
+
+/* Button Styles */
+.recommendations-button {
+  background: #F4A534;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 10px;
+}
+
+.recommendations-button:hover {
+  background: #e69423;
+  transform: translateY(-2px);
+}
+
+.recommendations-button:active {
+  transform: translateY(0);
+}
+
+.just-line hr{
+  width: 50rem;
+  border-color: #21293e69;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .result-title {
+    font-size: 28px;
+  }
+
+  .confirmation-message {
+    font-size: 20px;
+  }
+
+  .selected-mood-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .selected-mood-title {
+    font-size: 28px;
+  }
+
+  .result-items {
+    gap: 16px;
+  }
+
+  .result-item {
+    width: 120px;
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .result-title {
+    font-size: 24px;
+  }
+
+  .confirmation-message {
+    font-size: 18px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .selected-mood-description {
+    font-size: 16px;
+  }
+
+  .result-items {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .result-item {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .recommendations-button {
+    font-size: 16px;
+    padding: 14px 24px;
+  }
+}

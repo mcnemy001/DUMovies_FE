@@ -1,0 +1,168 @@
+/* src/assets/styles/QuizMood.css */
+.quiz-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #131f3c 0%, #000e31 100%);
+  padding: 20px;
+}
+
+.quiz-content {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  padding: 20px;
+}
+
+.quiz-title {
+  color: #ffffff;
+  font-size: 36px;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.quiz-subtitle {
+  color: #A8B0C4;
+  font-size: 1rem;
+  margin-bottom: 48px;
+  line-height: 1.5;
+}
+
+.selected-mood {
+  margin-bottom: 48px;
+}
+
+.selected-mood-icon {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 16px;
+}
+
+.selected-mood-title {
+  color: #ffffff;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.selected-mood-description {
+  color: #A8B0C4;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+  padding: 0 20px;
+}
+
+.mood-card {
+  background: rgba(0, 13, 46, 0.5);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mood-card:hover {
+  background: rgba(0, 13, 46, 0.8);
+  transform: translateY(-2px);
+}
+
+.mood-card.selected {
+  background: rgba(244, 165, 52, 0.1);
+  border-color: #F4A534;
+}
+
+.mood-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.mood-label {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.next-button {
+  width: 100%;
+  max-width: 400px;
+  padding: 14px;
+  background: #F4A534;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.next-button:hover {
+  background: #e69423;
+}
+
+.next-button.disabled {
+  background: #4B4F57;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .mood-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quiz-title {
+    font-size: 28px;
+  }
+
+  .selected-mood-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .selected-mood-title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .quiz-content {
+    padding: 10px;
+  }
+
+  .quiz-title {
+    font-size: 24px;
+  }
+
+  .quiz-subtitle {
+    font-size: 0.875rem;
+    margin-bottom: 32px;
+  }
+
+  .mood-grid {
+    gap: 12px;
+    padding: 0;
+  }
+
+  .mood-card {
+    padding: 12px;
+  }
+
+  .mood-icon {
+    width: 36px;
+    height: 36px;
+  }
+}

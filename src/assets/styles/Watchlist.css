@@ -1,0 +1,133 @@
+.watchlist-hero {
+    min-height: 40vh;
+    padding: 6rem 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .watchlist-hero-content {
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .watchlist-hero-flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .watchlist-hero-text {
+    flex: 1;
+    text-align: left;
+    margin-bottom: 0;
+  }
+  
+  .watchlist-hero-title {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .watchlist-hero-description {
+    color: #A8B0C4;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  
+  .watchlist-search-container {
+    flex: 1;
+    position: relative;
+    max-width: 400px;
+  }
+  
+  .watchlist-search-input {
+    width: 100%;
+    padding: 1rem 3rem 1rem 1.5rem;
+    background: rgba(154, 154, 154, 0.18);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    border: 1px solid rgba(154, 154, 154, 0.26);
+    color: white;
+    font-size: 1rem;
+  }
+  
+  .watchlist-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+  }
+
+.remove-from-watchlist {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.remove-from-watchlist:hover {
+  background: #dc3545;
+}
+
+.empty-watchlist {
+  display: flex;
+  color: #fff;
+  justify-content: center;
+}
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .watchlist-hero {
+      padding: 4rem 1rem 1rem;
+    }
+  
+    .watchlist-hero-flex-container {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1.5rem;
+    }
+  
+    .watchlist-hero-text {
+      text-align: center;
+    }
+  
+    .watchlist-search-container {
+      max-width: 100%;
+    }
+  
+    .watchlist-hero-title {
+      font-size: 2rem;
+    }
+  
+    .watchlist-hero-description {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .watchlist-hero-title {
+      font-size: 1.75rem;
+    }
+  }

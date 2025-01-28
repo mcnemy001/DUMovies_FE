@@ -1,0 +1,67 @@
+.profile-modal-container {
+    position: absolute;
+    top: 60px; /* Sesuaikan dengan posisi header */
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .profile-modal {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-username {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .logout-btn {
+    background: #f09631;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .logout-btn:hover {
+    opacity: 0.9;
+  }
+  
+  .close-modal-btn {
+    background: transparent;
+    border: none;
+    color: #888;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  
+  .close-modal-btn:hover {
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .profile-modal {
+      width: 150px;
+    }
+  
+    .logout-btn {
+      font-size: 0.9rem;
+    }
+  }
+  

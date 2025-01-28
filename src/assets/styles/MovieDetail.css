@@ -1,0 +1,234 @@
+.movie-detail-page {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #131f3c 0%, #000e31 100%);
+  }
+  
+  .detail-movie-hero {
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .detail-movie-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(to top, #101b35, rgba(19, 31, 60, 0));
+    pointer-events: none;
+  }
+  
+  .detail-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.7) 70%,
+      #0c1326 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 4rem;
+  }
+  
+  .detail-hero-content {
+    max-width: 1200px;
+    margin: 10rem auto;
+    width: 100%;
+  }
+  
+  .detail-movie-title {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .detail-release-year {
+    color: #A8B0C4;
+    font-size: 1.5rem;
+  }
+  
+  /* Detail Container */
+  .detail-container {
+    margin-top: -4rem;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .detail-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(154, 154, 154, 0.18);
+    border-radius: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.9px);
+    -webkit-backdrop-filter: blur(7.9px);
+    border: 1px solid rgba(154, 154, 154, 0.26);
+    padding: 3rem;
+    display: flex;
+    gap: 4rem;
+  }
+  
+  .synopsis-section {
+    flex: 2;
+  }
+  
+  .credits-section {
+    flex: 1;
+  }
+  
+  .synopsis-section h2,
+  .credits-section h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .synopsis-section p,
+  .credits-section p {
+    color: #A8B0C4;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  
+  .movie-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: #A8B0C4;
+}
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .star-icon {
+    color: #f09631;
+  }
+  
+  /* Similar Movies Section */
+  .similar-movies {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .similar-movies h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  
+  .similar-movies-grid {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  
+  .similar-movie-card {
+    flex: 0 0 220px;
+    height: 330px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .similar-movie-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .similar-movie-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .add-to-watchlist {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .add-to-watchlist:hover {
+    background: #f09631;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .detail-content {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  
+    .detail-movie-title {
+      font-size: 2.5rem;
+    }
+  
+    .detail-hero-overlay {
+      padding: 2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .detail-hero-content {
+      margin-bottom: 8rem;
+    }
+
+    .detail-movie-hero {
+      height: 50vh;
+    }
+  
+    .detail-detail-content {
+      padding: 1.5rem;
+    }
+  
+    .detail-movie-meta {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  
+    .similar-movie-card {
+      flex: 0 0 160px;
+      height: 240px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .detail-movie-title {
+      font-size: 2rem;
+    }
+  
+    .detail-release-year {
+      font-size: 1.2rem;
+    }
+  
+    .detail-container {
+      padding: 0 1rem;
+    }
+  }
