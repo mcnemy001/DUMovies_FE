@@ -15,7 +15,7 @@ const QuizGenre = () => {
   const [selectedGenres, setSelectedGenres] = useState([]);
   const navigate = useNavigate();
   const { updateGenres } = useQuiz();
-
+  
   const genres = [
     { id: 'Action', label: 'Action', icon: actionIcon },
     { id: 'Comedy', label: 'Comedy', icon: comedyIcon },
@@ -36,7 +36,8 @@ const QuizGenre = () => {
   };
 
   const handleNext = () => {
-    if (selectedGenres.length > 0) {
+    // Only allow navigation when exactly 2 genres are selected
+    if (selectedGenres.length === 2) {
       updateGenres(selectedGenres);
       navigate('/quizresult');
     }
@@ -47,13 +48,11 @@ const QuizGenre = () => {
       <div className="quiz-content">
         <h1 className="quiz-title">Now Choose Your Favorite Genres!</h1>
         <p className="quiz-subtitle">
-          Select up to 3 genres you enjoy. We'll find the perfect movie for you!
+          Select 2 genres you enjoy. We'll find the perfect movie for you!
         </p>
-
         <p className="selected-genres-count">
           {selectedGenres.length} / 2 genres selected
         </p>
-
         <div className="genre-grid">
           {genres.map((genre) => (
             <button
@@ -66,11 +65,10 @@ const QuizGenre = () => {
             </button>
           ))}
         </div>
-
         <button 
-          className={`next-button ${selectedGenres.length === 0 ? 'disabled' : ''}`}
+          className={`next-button ${selectedGenres.length !== 2 ? 'disabled' : ''}`}
           onClick={handleNext}
-          disabled={selectedGenres.length === 0}
+          disabled={selectedGenres.length !== 2}
         >
           Next
         </button>
