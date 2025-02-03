@@ -1,129 +1,233 @@
+/* Base styles */
 .recommendations-page {
-    min-height: 100vh;
-    background: linear-gradient(180deg, #131f3c 0%, #000e31 100%);
+  min-height: 100vh;
+  background: linear-gradient(180deg, #131f3c 0%, #000e31 100%);
+}
+
+.main-content {
+  padding: 1rem;
+}
+
+/* Movies container and sections */
+.movies-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.movie-section {
+  width: 100%;
+}
+
+.section-title {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* Movies row styling */
+.movies-row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #f09631 rgba(255, 255, 255, 0.1);
+  -webkit-overflow-scrolling: touch;
+}
+
+.movies-row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.movies-row::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.movies-row::-webkit-scrollbar-thumb {
+  background: #f09631;
+  border-radius: 10px;
+}
+
+/* Movie card styling */
+.movie-card {
+  flex: 0 0 auto;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  /* Base size for mobile */
+  width: 160px;
+  height: 240px;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.movie-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+}
+
+.movie-title {
+  font-size: 0.9rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-rating {
+  font-size: 0.8rem;
+  margin: 0.25rem 0 0;
+}
+
+.add-to-watchlist {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-to-watchlist:hover {
+  background: #f09631;
+  border-color: #f09631;
+}
+
+/* Loading spinner */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #131f3c 0%, #000e31 100%);
+}
+
+.loading-spinner {
+  text-align: center;
+}
+
+.spinner {
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-top: 6px solid #f09631;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error state */
+.error-container {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #131f3c 0%, #000e31 100%);
+}
+
+.retry-button {
+  background: #f09631;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.retry-button:hover {
+  background: #d87f1f;
+}
+
+/* Media Queries */
+@media screen and (min-width: 480px) {
+  .movie-card {
+    width: 180px;
+    height: 270px;
   }
-  
+
+  .movie-title {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
   .main-content {
     padding: 2rem;
   }
-  
-  .recommendations-text {
-    color: white;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    padding: 0 2rem;
-  }
-  
+
   .movies-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
     padding: 0 2rem;
-  }
-  
-  .movies-row {
-    display: flex;
-    gap: 1.5rem;
-    overflow-x: auto;
-    padding-bottom: 1rem;
-    scrollbar-width: thin;
-    scrollbar-color: #f09631 rgba(255, 255, 255, 0.1);
-  }
-  
-  .movies-row::-webkit-scrollbar {
-    height: 6px;
-  }
-  
-  .movies-row::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-  }
-  
-  .movies-row::-webkit-scrollbar-thumb {
-    background: #f09631;
-    border-radius: 10px;
-  }
-  
-  .movie-card {
-    flex: 0 0 auto;
-    width: 220px;
-    height: 330px;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-  }
-  
-  .movie-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .movie-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .add-to-watchlist {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .add-to-watchlist:hover {
-    background: #f09631;
   }
 
-  .loading-spinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  .movie-card {
+    width: 200px;
+    height: 300px;
   }
-  
-  .spinner {
-    border: 8px solid rgba(255, 255, 255, 0.2);
-    border-top: 8px solid #f09631;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s linear infinite;
+
+  .add-to-watchlist {
+    width: 32px;
+    height: 32px;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .movie-card {
+    width: 220px;
+    height: 330px;
   }
 
   .section-title {
-    color: white;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    padding: 0 2rem;
+    font-size: 1.75rem;
   }
 
-  .selection-hint {
-    color: #666;
-    font-size: 0.9em;
-    margin-top: 0.5em;
-    font-style: italic;
+  .movies-row {
+    gap: 1.5rem;
   }
-  
-  
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+}
+
+@media screen and (min-width: 1440px) {
+  .movies-container {
+    max-width: 1400px;
+    margin: 0 auto;
   }
-  
+}
